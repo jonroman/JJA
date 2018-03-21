@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="jonny-app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javascript exercises</title>
+
+  <!-- JQUERY CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Boostrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- ANGULARjs -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
+</head>
+<body>
+
+  <h1>Plain Javascript</h1>
+  
+  <button onclick="getTime()">Vanilla me the time</button>
+  <button onclick="clearTime()">Vanilla clear time</button>
+  <button onclick="toggleTime()">Vanilla hide/show</button>
+  <button onclick="showCode()">Vanilla show code</button>
+  <div id="time_1"></div>
+
+  <hr />
+  
+
+  <h1>JQUERY</h1>
+  <h3>featuring bootstrap 4</h3>
+  <button id="get_time" class="btn btn-sm btn-success">Jquery me the time</button>
+  <button id="clear_time" class="btn btn-sm btn-danger" >Jquery clear time</button>
+  <button id="toggle_time" class="btn btn-sm btn-warning">Jquery hide/show</button>
+  <button id="show_code" class="btn btn-sm btn-primary">Jquery show code</button>
+  <div id="time_2" class="card text-white bg-success"></div>
+
+  <hr />
+
+  <!-- Angualar -->
+  <div id="SPA" ng-controller="iron-man-controller">
+    <h1>{{title}}</h1>
+    <h3>{{subtitle}}</h3>
+    <h6>{{current_time}}</h6>
+    <button id="get_time" ng-click="getTime()" class="btn btn-sm btn-success">ng me the time</button>
+    <button id="clear_time" ng-click="clearTime()" class="btn btn-sm btn-danger" >ng clear time</button>
+    <button id="toggle_time" ng-click="toggleTime()" class="btn btn-sm btn-warning">ng hide/show</button>
+    <button id="show_code" ng-click="showCode()" class="btn btn-sm btn-primary">ng show code</button>
+    <div id="time_3" ng-hide="hide_show" ng-repeat="time in times" class="card text-white bg-success">{{time}}</div>
+  </div>
+
+</body>
+</html>
+
+<style>
+  #time_1, #time_2 {
+    display : none;
+  }
+</style>
+
+<!-- import the javascript file -->
+<script src="get_time.js"></script>

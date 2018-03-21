@@ -1,0 +1,51 @@
+var getTime = () => {
+  var date = new Date();
+  var node = document.createElement("DIV");
+  var timenode = document.createTextNode(date);
+  node.appendChild(timenode);
+  document.getElementById("time_1").appendChild(node);
+  document.getElementById("time_1").style.display = "block";
+}
+
+var clearTime = () => {
+  var node = document.getElementById("time_1");
+  while (node.hasChildNodes()) {   
+    node.removeChild(node.firstChild);
+  }
+}
+
+var toggleTime = () => {
+  var toggle = "block";
+  if (document.getElementById("time_1").style.display == "block") {
+    toggle = "none";
+  }
+  document.getElementById("time_1").style.display = toggle;
+}
+
+var showCode = () => {
+  window.open('get_time.js');
+}
+
+// ***** JQUERY  ****
+$("#get_time").on("click", () => {
+  var date = new Date();
+  $("#time_2").append("<div class='card-title'>TIME:</div><div class='card-body'>"+date+"</div>").css("display","block");
+});
+
+$("#clear_time").on("click", () => {
+  $("#time_2").empty();
+});
+
+$("#toggle_time").on("click", () => {
+  $("#time_2").toggle();
+});
+
+$("#show_code").on("click", () => {
+
+  console.log("asdfdas");
+
+  $.get('get_time.js', function(data) {
+    console.log(data);
+    $("the_code_2").append(data);
+ }, 'text');
+});
