@@ -41,11 +41,37 @@ $("#toggle_time").on("click", () => {
 });
 
 $("#show_code").on("click", () => {
+  window.open('get_time.js');
+});
 
-  console.log("asdfdas");
+// Angularjs
+var app = angular.module('jonny-app', []);
+app.controller('iron-man-controller', function($scope) {
+    $scope.title = "Angularjs (1.6)";
+    $scope.subtitle = "...featuring bootstrap 4";
+    $scope.current_time = new Date();
+    $scope.times = [];
+    $scope.hide_show = false;
+    
 
-  $.get('get_time.js', function(data) {
-    console.log(data);
-    $("the_code_2").append(data);
- }, 'text');
+    $scope.getTime = () => {
+      var date = new Date();
+      $scope.times.push(date);
+    };
+
+    $scope.clearTime = () => {
+      $scope.times = [];
+    };
+
+    $scope.toggleTime = () => {
+      if(!$scope.hide_show) {
+       $scope.hide_show = true;
+      } else {
+        $scope.hide_show = false;
+      }
+    };
+
+    $scope.showCode = () => {
+      window.open('get_time.js');
+    };
 });
